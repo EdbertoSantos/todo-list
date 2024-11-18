@@ -12,11 +12,12 @@ function App() {
   const closeAuthModal = () => setIsAuthModalOpen(false);
 
   return (
-    <div>
+    <div className='App'>
       <h1>TODO List</h1>
+      <h3>Faça login ou crie uma conta para te acesso ao Todo-list</h3>
       {!user ? (
         <>
-          <button onClick={openAuthModal}>Login / Registrar</button>
+          <button onClick={openAuthModal} className='btn'>Login / Registrar</button>
           {isAuthModalOpen && (
             <Modal onClose={closeAuthModal}>
               <Auth onAuthSuccess={(user) => {

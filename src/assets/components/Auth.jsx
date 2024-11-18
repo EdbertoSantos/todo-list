@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { auth } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import '../css/Auth.css'
 
 const Auth = ({ onAuthSuccess }) => {
   const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ const Auth = ({ onAuthSuccess }) => {
       onAuthSuccess(userCredential.user);
     } catch (error) {
       console.error("Erro ao registrar:", error.message);
+      alert("Erro ao registrar:", error.message);
     }
   };
 
@@ -23,12 +25,13 @@ const Auth = ({ onAuthSuccess }) => {
       onAuthSuccess(userCredential.user);
     } catch (error) {
       console.error("Erro ao fazer login:", error.message);
+      alert("Erro ao fazer login:", error.message);
     }
   };
 
   return (
-    <div>
-      <h2>{isRegister ? 'Registrar' : 'Login'}</h2>
+    <div className='Auth'>
+      <h2 >{isRegister ? 'Registrar' : 'Login'}</h2>
       <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="Senha" onChange={(e) => setPassword(e.target.value)} />
       {isRegister ? (
@@ -36,9 +39,8 @@ const Auth = ({ onAuthSuccess }) => {
       ) : (
         <button onClick={handleSignIn}>Login</button>
       )}
-      <p onClick={() => setIsRegister(!isRegister)} style={{ cursor: 'pointer', color: 'blue' }}>
-        {isRegister ? 'Já possui uma conta? Faça login' : 'Não possui conta? Registre-se'}
-      </p>
+      <p>{isRegister ? 'Já possui uma conta?' : 'Não possui conta?'}</p>
+      <button onClick={() => setIsRegister(!isRegister)}>{isRegister ? 'Faça login' : 'Registre-se'}</button>
     </div>
   );
 };

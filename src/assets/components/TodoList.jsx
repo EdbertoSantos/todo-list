@@ -1,6 +1,7 @@
 // src/components/TodoList.jsx
 import { useState } from 'react';
 import TodoItem from './TodoItem';
+import '../css/TodoList.css'
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -24,7 +25,7 @@ const TodoList = () => {
   };
 
   return (
-    <div>
+    <div className='TodoList'>
       <input
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}

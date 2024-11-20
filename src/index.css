@@ -28,7 +28,7 @@
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
 
-    .btn:hover {
+    .btn:hover, .btn-out:hover {
       background-color: #3700b3;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transform: scale(1.1);
@@ -41,6 +41,20 @@
 
     H3 {
       text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+    .btn-out {
+      top: 5vh;
+      right: 3vw;
+      width: 10vw;
+      height: 5vh;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      background-color: rgb(142, 9, 127);
+      text-shadow: 2px 2px 4px rgb(0, 0, 0);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
   }
 }
